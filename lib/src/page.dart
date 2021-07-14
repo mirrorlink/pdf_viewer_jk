@@ -23,7 +23,7 @@ class PDFPage extends StatefulWidget {
     this.minScale = 1.0,
     this.maxScale = 5.0,
     this.panLimit = 1.0,
-    this.withZoom = false;
+    this.withZoom = false
   });
 
   @override
