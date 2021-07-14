@@ -13,6 +13,7 @@ class PDFPage extends StatefulWidget {
   final double? minScale;
   final double? maxScale;
   final double? panLimit;
+  final bool withZoom;
 
   PDFPage(
     this.imgPath,
@@ -22,6 +23,7 @@ class PDFPage extends StatefulWidget {
     this.minScale = 1.0,
     this.maxScale = 5.0,
     this.panLimit = 1.0,
+    this.withZoom = false;
   });
 
   @override
@@ -55,7 +57,10 @@ class _PDFPageState extends State<PDFPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return 
+      
+      widget.withZoom ?
+      Container(
         decoration: null,
         child: ZoomableWidget(
           onZoomChanged: widget.onZoomChanged,
@@ -63,7 +68,8 @@ class _PDFPageState extends State<PDFPage> {
           minScale: widget.minScale ?? 1.0,
           panLimit: widget.panLimit ?? 1.0,
           maxScale: widget.maxScale ?? 5.0,
-          child: Image(image: provider),
+          child: Image(image: provider)
         ));
+    : Image(image: provider);
   }
 }
