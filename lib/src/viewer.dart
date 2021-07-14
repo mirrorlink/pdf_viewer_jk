@@ -25,6 +25,7 @@ class PDFViewer extends StatefulWidget {
   final double? minScale;
   final double? maxScale;
   final double? panLimit;
+  final bool withZoom;
 
   final Widget Function(
     BuildContext,
@@ -34,7 +35,7 @@ class PDFViewer extends StatefulWidget {
     void Function({int? page}) animateToPage,
   )? navigationBuilder;
 
-  PDFViewer({Key? key, required this.document, this.scrollDirection, this.lazyLoad = true, this.indicatorText = Colors.white, this.indicatorBackground = Colors.black54, this.showIndicator = true, this.showPicker = true, this.showNavigation = true, this.enableSwipeNavigation = true, this.tooltip = const PDFViewerTooltip(), this.backgroundNavigation = Colors.white, this.iconNavigation = Colors.black, this.backgorundPickPage, this.iconPickPage, this.navigationBuilder, this.controller, this.indicatorPosition = IndicatorPosition.topRight, this.zoomSteps, this.minScale, this.maxScale, this.panLimit}) : super(key: key);
+  PDFViewer({Key? key, required this.document, this.withZoom = true, this.scrollDirection, this.lazyLoad = true, this.indicatorText = Colors.white, this.indicatorBackground = Colors.black54, this.showIndicator = true, this.showPicker = true, this.showNavigation = true, this.enableSwipeNavigation = true, this.tooltip = const PDFViewerTooltip(), this.backgroundNavigation = Colors.white, this.iconNavigation = Colors.black, this.backgorundPickPage, this.iconPickPage, this.navigationBuilder, this.controller, this.indicatorPosition = IndicatorPosition.topRight, this.zoomSteps, this.minScale, this.maxScale, this.panLimit}) : super(key: key);
 
   _PDFViewerState createState() => _PDFViewerState();
 }
@@ -61,6 +62,7 @@ class _PDFViewerState extends State<PDFViewer> {
         minScale: widget.minScale,
         maxScale: widget.maxScale,
         panLimit: widget.panLimit,
+        withZoom: widget.withZoom
       );
   }
 
@@ -103,6 +105,7 @@ class _PDFViewerState extends State<PDFViewer> {
       minScale: widget.minScale,
       maxScale: widget.maxScale,
       panLimit: widget.panLimit,
+      withZoom: widget.withZoom
     );
     _pages![_pageNumber - 1] = data;
     if (mounted) {
