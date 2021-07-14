@@ -111,6 +111,7 @@ class PDFDocument {
     final double? minScale,
     final double? maxScale,
     final double? panLimit,
+    final bool withZoom = false
   }) async {
     assert(page > 0);
     if (_preloaded && _pages.isNotEmpty) return _pages[page - 1];
@@ -124,6 +125,7 @@ class PDFDocument {
       minScale: minScale,
       maxScale: maxScale,
       panLimit: panLimit,
+      withZoom: withZoom
     );
   }
 
