@@ -135,6 +135,7 @@ class PDFDocument {
     final double? minScale,
     final double? maxScale,
     final double? panLimit,
+    final bool withZoom = false
   }) async {
     int countvar = 1;
     await Future.forEach<int>(List.filled(count!, 0), (i) async {
@@ -148,6 +149,7 @@ class PDFDocument {
         minScale: minScale,
         maxScale: maxScale,
         panLimit: panLimit,
+        withZoom: withZoom
       ));
       countvar++;
     });
