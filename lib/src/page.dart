@@ -59,7 +59,7 @@ class _PDFPageState extends State<PDFPage> {
   Widget build(BuildContext context) {
     return 
       
-      widget.withZoom ?
+      (widget.withZoom ?
       Container(
         decoration: null,
         child: ZoomableWidget(
@@ -69,7 +69,7 @@ class _PDFPageState extends State<PDFPage> {
           panLimit: widget.panLimit ?? 1.0,
           maxScale: widget.maxScale ?? 5.0,
           child: Image(image: provider)
-        ));
-    : Image(image: provider);
+        ))
+    : Image(image: provider));
   }
 }
